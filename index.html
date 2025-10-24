@@ -41,14 +41,14 @@
 
     <!-- Columna central - Tarifas -->
     <div class="column center">
-      <section class="pricing">
+      <section class="pricing visible">
         <h2>💻 Tarifas de Internet</h2>
         <div class="pricing-grid">
-          <div class="price-card"><h3>30 minutos</h3><p>$5.00</p></div>
-          <div class="price-card"><h3>1 hora</h3><p>$10.00</p></div>
-          <div class="price-card"><h3>Día</h3><p>$30.00</p></div>
-          <div class="price-card"><h3>Semana</h3><p>$85.00</p></div>
-          <div class="price-card"><h3>Mes</h3><p>$190.00</p></div>
+          <div class="price-card visible"><h3>30 minutos</h3><p>$5.00</p></div>
+          <div class="price-card visible"><h3>1 hora</h3><p>$10.00</p></div>
+          <div class="price-card visible"><h3>Día</h3><p>$30.00</p></div>
+          <div class="price-card visible"><h3>Semana</h3><p>$85.00</p></div>
+          <div class="price-card visible"><h3>Mes</h3><p>$190.00</p></div>
         </div>
       </section>
     </div>
@@ -63,7 +63,7 @@
   </section>
 
   <!-- Horario -->
-  <section class="hours">
+  <section class="hours visible">
     <h2>🕘 Horario</h2>
     <p>9:00 AM – 6:00 PM</p>
   </section>
@@ -91,14 +91,9 @@ const modal = document.getElementById("trialModal");
 function closeModal(){ modal.style.display="none"; }
 setTimeout(()=>{ modal.style.display="flex"; }, trialWarningTime);
 
-// Animación entrada
-const revealElements = document.querySelectorAll('.service, .price-card, .hours');
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry=>{
-    if(entry.isIntersecting) entry.target.classList.add('visible');
-  });
-},{threshold:0.2});
-revealElements.forEach(el => observer.observe(el));
+// Animación servicios
+const revealElements = document.querySelectorAll('.service');
+revealElements.forEach(el => el.classList.add('visible'));
 </script>
 
 </body>
