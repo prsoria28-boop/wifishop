@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="WiFi Shop: tu refugio urbano con café, tortas, recargas, WiFi y más.">
+<title>WiFi Shop</title>
+<link rel="stylesheet" href="info-style.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- Fondo -->
+<div class="background"></div>
+
+<!-- Contenedor principal -->
+<main class="container">
+
+  <!-- Header -->
+  <header class="header">
+    <img src="logo.png" alt="Logo WiFi Shop" class="logo">
+    <h1>WiFi Shop</h1>
+    <p class="tagline">Tu refugio urbano en la terminal · <span>Your urban refuge in the terminal</span></p>
+  </header>
+
+  <!-- Grid principal -->
+  <section class="main-grid">
+
+    <!-- Columna izquierda -->
+    <div class="column left">
+      <div class="service"><img src="tortas.png" alt=""><p>🥪 Tortas<br><span>Sandwiches</span></p></div>
+      <div class="service"><img src="cafe.png" alt=""><p>☕ Café<br><span>Coffee</span></p></div>
+      <div class="service"><img src="licuado.png" alt=""><p>🥤 Licuados<br><span>Smoothies</span></p></div>
+    </div>
+
+    <!-- Columna central -->
+    <div class="column center">
+      <section class="pricing">
+        <h2>💻 Tarifas de Internet</h2>
+        <ul>
+          <li>30 minutos / 30 minutes — <strong>$5.00</strong></li>
+          <li>1 hora / 1 hour — <strong>$10.00</strong></li>
+          <li>Día / Day — <strong>$30.00</strong></li>
+          <li>Semana / Week — <strong>$85.00</strong></li>
+          <li>Mes / Month — <strong>$190.00</strong></li>
+        </ul>
+      </section>
+    </div>
+
+    <!-- Columna derecha -->
+    <div class="column right">
+      <div class="service"><img src="aseo.png" alt=""><p>🧼 Aseo Personal<br><span>Personal Care</span></p></div>
+      <div class="service"><img src="recarga.png" alt=""><p>📲 Recargas<br><span>Top-ups</span></p></div>
+      <div class="service"><img src="internet.png" alt=""><p>🌐 Internet WiFi<br><span>WiFi</span></p></div>
+    </div>
+
+  </section>
+
+  <!-- Horario -->
+  <section class="hours">
+    <h2>🕘 Horario</h2>
+    <p>9:00 AM – 6:00 PM</p>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>Gracias por apoyar a <strong>WiFi Shop</strong><br><span>Thank you for supporting WiFi Shop</span></p>
+  </footer>
+
+</main>
+
+<!-- Modal -->
+<div class="modal" id="trialModal">
+  <div class="modal-content">
+    <h3>⏳ Tiempo gratuito por terminar</h3>
+    <p>Visítanos en <strong>WiFi Shop</strong> para adquirir acceso completo.<br>Your free time is almost up — visit WiFi Shop to purchase full access.</p>
+    <button class="modal-button" onclick="closeModal()">Entendido / OK</button>
+  </div>
+</div>
+
+<!-- Script -->
+<script>
+const trialWarningTime = 240000;
+const modal = document.getElementById("trialModal");
+function closeModal(){ modal.style.display="none"; }
+setTimeout(()=>{ modal.style.display="flex"; }, trialWarningTime);
+
+// Scroll reveal
+const revealElements = document.querySelectorAll('.service, .pricing, .hours');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry=>{
+    if(entry.isIntersecting) entry.target.classList.add('visible');
+  });
+},{threshold:0.2});
+revealElements.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
