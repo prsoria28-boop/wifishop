@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="WiFi Shop: tu refugio urbano con café, tortas, recargas, WiFi y más.">
+<meta name="description" content="WiFi Shop: tu refugio urbano con café, tortas, recargas, WiFi y más. ¡Todo en un solo lugar!">
 <title>WiFi Shop</title>
 <link rel="stylesheet" href="info-style.css">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
@@ -23,6 +23,12 @@
     <p class="tagline">Tu refugio urbano en la terminal · <span>Your urban refuge in the terminal</span></p>
   </header>
 
+  <!-- Descripción -->
+  <section class="description">
+    <p><strong>ES:</strong> En nuestra tienda puedes encontrar de todo: aseo personal, tortas, café, licuados, recargas, ¡y por supuesto, internet WiFi! Todo al alcance de tus manos.</p>
+    <p><strong>EN:</strong> In our store you’ll find everything: personal care, sandwiches, coffee, smoothies, mobile top-ups, and of course, WiFi internet! All at your fingertips.</p>
+  </section>
+
   <!-- Grid principal -->
   <section class="main-grid">
 
@@ -33,17 +39,17 @@
       <div class="service"><img src="licuado.png" alt=""><p>🥤 Licuados<br><span>Smoothies</span></p></div>
     </div>
 
-    <!-- Columna central -->
+    <!-- Columna central - Tarifas -->
     <div class="column center">
       <section class="pricing">
         <h2>💻 Tarifas de Internet</h2>
-        <ul>
-          <li>30 minutos / 30 minutes — <strong>$5.00</strong></li>
-          <li>1 hora / 1 hour — <strong>$10.00</strong></li>
-          <li>Día / Day — <strong>$30.00</strong></li>
-          <li>Semana / Week — <strong>$85.00</strong></li>
-          <li>Mes / Month — <strong>$190.00</strong></li>
-        </ul>
+        <div class="pricing-grid">
+          <div class="price-card"><h3>30 minutos</h3><p>$5.00</p></div>
+          <div class="price-card"><h3>1 hora</h3><p>$10.00</p></div>
+          <div class="price-card"><h3>Día</h3><p>$30.00</p></div>
+          <div class="price-card"><h3>Semana</h3><p>$85.00</p></div>
+          <div class="price-card"><h3>Mes</h3><p>$190.00</p></div>
+        </div>
       </section>
     </div>
 
@@ -85,8 +91,8 @@ const modal = document.getElementById("trialModal");
 function closeModal(){ modal.style.display="none"; }
 setTimeout(()=>{ modal.style.display="flex"; }, trialWarningTime);
 
-// Scroll reveal
-const revealElements = document.querySelectorAll('.service, .pricing, .hours');
+// Animación entrada
+const revealElements = document.querySelectorAll('.service, .price-card, .hours');
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry=>{
     if(entry.isIntersecting) entry.target.classList.add('visible');
